@@ -5,10 +5,10 @@
 { config, pkgs, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+  ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -82,9 +82,12 @@
   users.users.hieu = {
     isNormalUser = true;
     description = "Hieu";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+    ];
     packages = with pkgs; [
-    #  thunderbird
+      #  thunderbird
     ];
   };
 
@@ -95,8 +98,11 @@
   nixpkgs.config.allowUnfree = true;
 
   # Enable the Flakes feature and the accompanying new nix command-line tool
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
-  
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
+
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
@@ -106,30 +112,30 @@
     neovim
 
     # Nix
-    nixfmt                    # Nix code formatter
-    nixd                      # Nix Language server
+    nixfmt # Nix code formatter
+    nixd # Nix Language server
 
     # CLI tools
-    bat                       # A cat clone with syntax highlighting and Git integration
-    btop                      # Resource monitor for the terminal
-    difftastic                # Diff tool with syntax-aware comparison
-    eza                       # Modern replacement for 'ls' with more features
-    fastfetch                 # Fast system information tool (like neofetch)
-    fd                        # Simple, fast and user-friendly alternative to 'find'
-    fish                      # User-friendly interactive shell
-    fnm                       # Fast Node.js version manager (binary)
-    fzf                       # Command-line fuzzy finder
-    ghostty                   # GPU-accelerated terminal emulator
-    lazygit                   # Simple terminal UI for git commands
+    bat # A cat clone with syntax highlighting and Git integration
+    btop # Resource monitor for the terminal
+    difftastic # Diff tool with syntax-aware comparison
+    eza # Modern replacement for 'ls' with more features
+    fastfetch # Fast system information tool (like neofetch)
+    fd # Simple, fast and user-friendly alternative to 'find'
+    fish # User-friendly interactive shell
+    fnm # Fast Node.js version manager (binary)
+    fzf # Command-line fuzzy finder
+    ghostty # GPU-accelerated terminal emulator
+    lazygit # Simple terminal UI for git commands
     # inputs.neovim-nightly-overlay.packages.${pkgs.stdenv.hostPlatform.system}.default                # Ambitious Vim-fork focused on extensibility and agility
-    ripgrep                   # Fast search tool (like grep, but better)
-    starship                  # Minimal, customizable shell prompt
-    stow                      # Symlink farm manager for dotfiles
-    tree-sitter           # CLI for Tree-sitter parsing library
-    uv                        # Fast Python virtual environment manager
-    wl-clipboard              # Clipboard manager for Wayland
-    zoxide                    # Smarter cd command for navigation
-    zsh                       # Powerful shell with advanced features
+    ripgrep # Fast search tool (like grep, but better)
+    starship # Minimal, customizable shell prompt
+    stow # Symlink farm manager for dotfiles
+    tree-sitter # CLI for Tree-sitter parsing library
+    uv # Fast Python virtual environment manager
+    wl-clipboard # Clipboard manager for Wayland
+    zoxide # Smarter cd command for navigation
+    zsh # Powerful shell with advanced features
 
     # System tools
     # bitwarden-desktop                 # Secure password manager

@@ -2,4 +2,4 @@ repos:
   - repo: https://github.com/NixOS/nixfmt
     rev: v1.2.0
     hooks:
-      - id: nixfmt
+      - id: nixfmt-nix
