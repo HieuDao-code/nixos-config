@@ -115,6 +115,7 @@
     wget
     git
     clang # C Compiler
+    unzip
 
     # Nix
     nixfmt # Nix code formatter
