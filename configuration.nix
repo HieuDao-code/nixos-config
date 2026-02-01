@@ -105,7 +105,11 @@
     git
     neovim
 
-   # CLI tools
+    # Nix
+    nixfmt                    # Nix code formatter
+    nixd                      # Nix Language server
+
+    # CLI tools
     bat                       # A cat clone with syntax highlighting and Git integration
     btop                      # Resource monitor for the terminal
     difftastic                # Diff tool with syntax-aware comparison
