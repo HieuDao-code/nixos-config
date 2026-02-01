@@ -4,6 +4,9 @@
   home.username = "hieu";
   home.homeDirectory = "/home/hieu";
 
+  # Management of XDG base directories
+  xdg.enable = true;
+
   # Import files from the current configuration directory into the Nix store,
   # and create symbolic links pointing to those store files in the Home directory.
 
