@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, inputs, ... }:
+{ config, pkgs, ... }:
 
 {
   imports =
@@ -45,9 +45,9 @@
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
-  # Enable the XFCE Desktop Environment.
-  services.xserver.displayManager.lightdm.enable = true;
-  services.xserver.desktopManager.xfce.enable = true;
+  # Enable the GNOME Desktop Environment.
+  services.displayManager.gdm.enable = true;
+  services.desktopManager.gnome.enable = true;
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -94,26 +94,18 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
- # nixpkgs.overlays = [
- #   (import (builtins.fetchTarball {
- #     url = "https://github.com/nix-community/neovim-nightly-overlay/archive/master.tar.gz";
- #   }))
- # ];
-
   # Enable the Flakes feature and the accompanying new nix command-line tool
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-  # Flakes clones its dependencies through the git command,
-  # so git must be installed first
+    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     wget
-    curl
-    vim
     git
+    neovim
 
-    # CLI tools
+   # CLI tools
     bat                       # A cat clone with syntax highlighting and Git integration
     btop                      # Resource monitor for the terminal
     difftastic                # Diff tool with syntax-aware comparison
@@ -125,7 +117,7 @@
     fzf                       # Command-line fuzzy finder
     ghostty                   # GPU-accelerated terminal emulator
     lazygit                   # Simple terminal UI for git commands
-    inputs.neovim-nightly-overlay.packages.${pkgs.stdenv.hostPlatform.system}.default                # Ambitious Vim-fork focused on extensibility and agility
+    # inputs.neovim-nightly-overlay.packages.${pkgs.stdenv.hostPlatform.system}.default                # Ambitious Vim-fork focused on extensibility and agility
     ripgrep                   # Fast search tool (like grep, but better)
     starship                  # Minimal, customizable shell prompt
     stow                      # Symlink farm manager for dotfiles
@@ -136,34 +128,43 @@
     zsh                       # Powerful shell with advanced features
 
     # System tools
-    bitwarden-desktop                 # Secure password manager
-    libreoffice-still         # Office suite (stable branch)
-    portfolio                 # Investment portfolio tracking tool
-    obsidian                  # Markdown-based knowledge base app
-    rclone                    # Command-line cloud storage sync tool
-    spotify                   # Music streaming client
+    # bitwarden-desktop                 # Secure password manager
+    # libreoffice-still         # Office suite (stable branch)
+    # portfolio                 # Investment portfolio tracking tool
+    # obsidian                  # Markdown-based knowledge base app
+    # rclone                    # Command-line cloud storage sync tool
+    # spotify                   # Music streaming client
     nerd-fonts.jetbrains-mono # JetBrains Mono font with Nerd Fonts glyphs
 
     # Desktop Shell & Window manager
-    adw-gtk3                  # An unofficial GTK3 port of libadwaita
-    cava                      # Audio visualizer for the terminal
-    papirus-icon-theme        # Papirus icon theme for Linux desktops
+    # adw-gtk3                  # An unofficial GTK3 port of libadwaita
+    # cava                      # Audio visualizer for the terminal
+    # papirus-icon-theme        # Papirus icon theme for Linux desktops
     # qt6-multimedia-ffmpeg     # FFmpeg plugin for Qt6 multimedia
-    thunar                    # Modern, fast and easy-to-use file manager for Xfce
-    xdg-desktop-portal-gnome  # GNOME portal backend for desktop integration
+    # thunar                    # Modern, fast and easy-to-use file manager for Xfce
+    # xdg-desktop-portal-gnome  # GNOME portal backend for desktop integration
 
     # Gaming
-    discord                   # All-in-one voice and text chat for gamers
-    gamescope                 # Micro-compositor for gaming (Steam Deck, etc.)
-    steam                     # Digital distribution platform for games
+    # discord                   # All-in-one voice and text chat for gamers
+    # gamescope                 # Micro-compositor for gaming (Steam Deck, etc.)
+    # steam                     # Digital distribution platform for games
     # xpadneo-dkms              # DKMS driver for Xbox One wireless gamepads
   ];
 
+  # Some programs need SUID wrappers, can be configured further or are
+  # started in user sessions.
+  # programs.mtr.enable = true;
+  # programs.gnupg.agent = {
+  #   enable = true;
+  #   enableSSHSupport = true;
+  # };
+
+  # Fonts settings
   fonts.packages = with pkgs; [
     nerd-fonts.jetbrains-mono
   ];
 
-  # Set the default editor to vim
+  # Set the default editor to nvim
   environment.variables.EDITOR = "nvim";
 
   # Limit the number of generations to keep
@@ -185,14 +186,7 @@
   #    nix-store --optimise
   # Refer to the following link for more details:
   # https://nixos.org/manual/nix/stable/command-ref/conf-file.html#conf-auto-optimise-store
-  nix.settings.auto-optimise-store = true;  # Some programs need SUID wrappers, can be configured further or are
-
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
+  nix.settings.auto-optimise-store = true;
 
   # List services that you want to enable:
 
