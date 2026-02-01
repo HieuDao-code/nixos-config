@@ -114,6 +114,7 @@
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     wget
     git
+    clang # C Compiler
 
     # Nix
     nixfmt # Nix code formatter
@@ -135,7 +136,7 @@
     ripgrep # Fast search tool (like grep, but better)
     starship # Minimal, customizable shell prompt
     stow # Symlink farm manager for dotfiles
-    # tree-sitter # CLI for Tree-sitter parsing library
+    tree-sitter # CLI for Tree-sitter parsing library
     uv # Fast Python virtual environment manager
     wl-clipboard # Clipboard manager for Wayland
     zoxide # Smarter cd command for navigation
