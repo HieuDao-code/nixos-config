@@ -2,7 +2,12 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{
+  inputs,
+  config,
+  pkgs,
+  ...
+}:
 
 {
   imports = [
@@ -109,7 +114,6 @@
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     wget
     git
-    neovim
 
     # Nix
     nixfmt # Nix code formatter
@@ -127,11 +131,11 @@
     fzf # Command-line fuzzy finder
     ghostty # GPU-accelerated terminal emulator
     lazygit # Simple terminal UI for git commands
-    # inputs.neovim-nightly-overlay.packages.${pkgs.stdenv.hostPlatform.system}.default                # Ambitious Vim-fork focused on extensibility and agility
+    inputs.neovim-nightly-overlay.packages.${pkgs.stdenv.hostPlatform.system}.default # Ambitious Vim-fork focused on extensibility and agility
     ripgrep # Fast search tool (like grep, but better)
     starship # Minimal, customizable shell prompt
     stow # Symlink farm manager for dotfiles
-    tree-sitter # CLI for Tree-sitter parsing library
+    # tree-sitter # CLI for Tree-sitter parsing library
     uv # Fast Python virtual environment manager
     wl-clipboard # Clipboard manager for Wayland
     zoxide # Smarter cd command for navigation
