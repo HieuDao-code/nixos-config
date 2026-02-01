@@ -192,6 +192,14 @@
   # https://nixos.org/manual/nix/stable/command-ref/conf-file.html#conf-auto-optimise-store
   nix.settings.auto-optimise-store = true;
 
+  # NixOS cannot run dynamically linked executables intended for generic
+  # Linux environments out of the box.
+  programs.nix-ld.enable = true;
+  programs.nix-ld.libraries = with pkgs; [
+    # Add any missing dynamic libraries for unpackaged programs
+    # here, NOT in environment.systemPackages
+  ];
+
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
