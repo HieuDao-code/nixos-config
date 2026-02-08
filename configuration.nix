@@ -15,6 +15,9 @@
     ./hardware-configuration.nix
   ];
 
+  # Add ~/.local/bin to PATH
+  environment.localBinInPath = true;
+
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -194,7 +197,7 @@
   nix.gc = {
     automatic = true;
     dates = "weekly";
-    options = "--delete-older-than 14d";
+    options = "--delete-older-than 7d";
   };
 
   # Optimize storage
