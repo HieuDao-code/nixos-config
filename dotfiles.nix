@@ -32,5 +32,5 @@ in
   xdg.configFile = builtins.listToAttrs (map mkLink configs);
 
   home.file.".zshenv".source =
-    config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/zsh/.zshenv";
+    config.lib.file.mkOutOfStoreSymlink "${dotfiles}/zsh/.zshenv";
 }
