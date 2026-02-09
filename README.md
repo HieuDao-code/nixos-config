@@ -1,3 +1,9 @@
+### Installation
+
+```
+curl -fsSL https://raw.githubusercontent.com/HieuDao-Code/nixos-config/main/install.sh | bash
+```
+
 ### Update System with Flake
 
 ```sh
@@ -8,12 +14,5 @@ nix flake update
 nix flake update home-manager
 
 # Apply the updates
-# sudo nixos-rebuild switch --flake .
-sudo nixos-rebuild switch
-```
-
-### Symlink with stow
-
-```sh
-sudo stow --adopt --target="/etc/nixos" nixos-config
+sudo nixos-rebuild switch --flake .#$(hostname)
 ```
