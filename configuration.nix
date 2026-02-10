@@ -6,6 +6,7 @@
   inputs,
   config,
   pkgs,
+  pkgs-unstable,
   ...
 }:
 
@@ -113,62 +114,66 @@
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = with pkgs; [
-    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-    wget
-    git
-    clang # C Compiler
-    unzip
+  environment.systemPackages =
+    (with pkgs; [
+      vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+      wget
+      git
+      clang # C Compiler
+      unzip
 
-    # Nix
-    nixfmt # Nix code formatter
-    nixd # Nix Language server
+      # Nix
+      nixfmt # Nix code formatter
+      nixd # Nix Language server
 
-    # CLI tools
-    bat # A cat clone with syntax highlighting and Git integration
-    btop # Resource monitor for the terminal
-    difftastic # Diff tool with syntax-aware comparison
-    eza # Modern replacement for 'ls' with more features
-    fastfetch # Fast system information tool (like neofetch)
-    fd # Simple, fast and user-friendly alternative to 'find'
-    fish # User-friendly interactive shell
-    fnm # Fast Node.js version manager (binary)
-    fzf # Command-line fuzzy finder
-    ghostty # GPU-accelerated terminal emulator
-    lazygit # Simple terminal UI for git commands
-    inputs.neovim-nightly-overlay.packages.${pkgs.stdenv.hostPlatform.system}.default # Ambitious Vim-fork focused on extensibility and agility
-    ripgrep # Fast search tool (like grep, but better)
-    starship # Minimal, customizable shell prompt
-    stow # Symlink farm manager for dotfiles
-    tree-sitter # CLI for Tree-sitter parsing library
-    uv # Fast Python virtual environment manager
-    wl-clipboard # Clipboard manager for Wayland
-    zoxide # Smarter cd command for navigation
-    zsh # Powerful shell with advanced features
+      # CLI tools
+      bat # A cat clone with syntax highlighting and Git integration
+      btop # Resource monitor for the terminal
+      difftastic # Diff tool with syntax-aware comparison
+      eza # Modern replacement for 'ls' with more features
+      fastfetch # Fast system information tool (like neofetch)
+      fd # Simple, fast and user-friendly alternative to 'find'
+      fish # User-friendly interactive shell
+      fnm # Fast Node.js version manager (binary)
+      fzf # Command-line fuzzy finder
+      lazygit # Simple terminal UI for git commands
+      inputs.neovim-nightly-overlay.packages.${pkgs.stdenv.hostPlatform.system}.default # Ambitious Vim-fork focused on extensibility and agility
+      ripgrep # Fast search tool (like grep, but better)
+      starship # Minimal, customizable shell prompt
+      stow # Symlink farm manager for dotfiles
+      tree-sitter # CLI for Tree-sitter parsing library
+      uv # Fast Python virtual environment manager
+      wl-clipboard # Clipboard manager for Wayland
+      zoxide # Smarter cd command for navigation
+      zsh # Powerful shell with advanced features
 
-    # System tools
-    # bitwarden-desktop                 # Secure password manager
-    # libreoffice-still         # Office suite (stable branch)
-    # portfolio                 # Investment portfolio tracking tool
-    # obsidian                  # Markdown-based knowledge base app
-    # rclone                    # Command-line cloud storage sync tool
-    # spotify                   # Music streaming client
-    # nerd-fonts.jetbrains-mono # JetBrains Mono font with Nerd Fonts glyphs
+      # System tools
+      # bitwarden-desktop                 # Secure password manager
+      # libreoffice-still         # Office suite (stable branch)
+      # portfolio                 # Investment portfolio tracking tool
+      # obsidian                  # Markdown-based knowledge base app
+      # rclone                    # Command-line cloud storage sync tool
+      # spotify                   # Music streaming client
+      # nerd-fonts.jetbrains-mono # JetBrains Mono font with Nerd Fonts glyphs
 
-    # Desktop Shell & Window manager
-    # adw-gtk3                  # An unofficial GTK3 port of libadwaita
-    # cava                      # Audio visualizer for the terminal
-    # papirus-icon-theme        # Papirus icon theme for Linux desktops
-    # qt6-multimedia-ffmpeg     # FFmpeg plugin for Qt6 multimedia
-    # thunar                    # Modern, fast and easy-to-use file manager for Xfce
-    # xdg-desktop-portal-gnome  # GNOME portal backend for desktop integration
+      # Desktop Shell & Window manager
+      # adw-gtk3                  # An unofficial GTK3 port of libadwaita
+      # cava                      # Audio visualizer for the terminal
+      # papirus-icon-theme        # Papirus icon theme for Linux desktops
+      # qt6-multimedia-ffmpeg     # FFmpeg plugin for Qt6 multimedia
+      # thunar                    # Modern, fast and easy-to-use file manager for Xfce
+      # xdg-desktop-portal-gnome  # GNOME portal backend for desktop integration
 
-    # Gaming
-    # discord                   # All-in-one voice and text chat for gamers
-    # gamescope                 # Micro-compositor for gaming (Steam Deck, etc.)
-    # steam                     # Digital distribution platform for games
-    # xpadneo-dkms              # DKMS driver for Xbox One wireless gamepads
-  ];
+      # Gaming
+      # discord                   # All-in-one voice and text chat for gamers
+      # gamescope                 # Micro-compositor for gaming (Steam Deck, etc.)
+      # steam                     # Digital distribution platform for games
+      # xpadneo-dkms              # DKMS driver for Xbox One wireless gamepads
+    ])
+
+    ++ (with pkgs-unstable; [
+      ghostty # GPU-accelerated terminal emulator
+    ]);
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

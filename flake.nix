@@ -28,10 +28,19 @@
       home-manager,
       ...
     }@inputs:
+    let
+      system = "x86_64-linux";
+      pkgs-unstable = nixpkgs-unstable.legacyPackages.${system};
+    in
     {
       # Please replace nixos with your hostname
       nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit inputs; };
+        # Set all inputs parameters as special arguments for all submodules,
+        # so you can directly use all dependencies in inputs in submodules
+        specialArgs = {
+          inherit inputs;
+          inherit pkgs-unstable;
+        };
         modules = [
           # Import the previous configuration.nix we used,
           # so the old configuration file still takes effect
