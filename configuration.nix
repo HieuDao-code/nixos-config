@@ -154,7 +154,6 @@
       # obsidian                  # Markdown-based knowledge base app
       # rclone                    # Command-line cloud storage sync tool
       # spotify                   # Music streaming client
-      # nerd-fonts.jetbrains-mono # JetBrains Mono font with Nerd Fonts glyphs
 
       # Desktop Shell & Window manager
       # adw-gtk3                  # An unofficial GTK3 port of libadwaita
@@ -185,7 +184,7 @@
 
   # Fonts settings
   fonts.packages = with pkgs; [
-    nerd-fonts.jetbrains-mono
+    nerd-fonts.jetbrains-mono # JetBrains Mono font with Nerd Fonts glyphs
   ];
 
   # Set the default editor to nvim
