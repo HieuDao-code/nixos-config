@@ -148,12 +148,12 @@
       zsh # Powerful shell with advanced features
 
       # System tools
-      # bitwarden-desktop                 # Secure password manager
-      # libreoffice-still         # Office suite (stable branch)
-      # portfolio                 # Investment portfolio tracking tool
-      # obsidian                  # Markdown-based knowledge base app
-      # rclone                    # Command-line cloud storage sync tool
-      # spotify                   # Music streaming client
+      bitwarden-desktop # Secure password manager
+      libreoffice-still # Office suite (stable branch)
+      portfolio # Investment portfolio tracking tool
+      obsidian # Markdown-based knowledge base app
+      rclone # Command-line cloud storage sync tool
+      spotify # Music streaming client
 
       # Desktop Shell & Window manager
       # adw-gtk3                  # An unofficial GTK3 port of libadwaita
