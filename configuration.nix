@@ -157,17 +157,17 @@
       zsh # Powerful shell with advanced features
 
       # Desktop Shell & Window manager
-      adw-gtk # An unofficial GTK3 port of libadwaita
+      adw-gtk3 # An unofficial GTK3 port of libadwaita
       cava # Console-based audio visualizer
       cliphist # Clipboard manager for Wayland
-      # ly # Lightweight TUI display manager
+      ly # Lightweight TUI display manager
       # niri # A scrollable-tiling Wayland compositor
       inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default # A beautiful, minimal desktop shell for wayland
       nwg-look # GTK settings editor adapted to work on wlroots-based compositors
       papirus-icon-theme # Papirus icon theme for Linux desktops
       kdePackages.qt6ct # Qt 6 Configuration Utility
-      # spicetify-cli # CLI to customize Spotify
-      # xfce.thunar # Modern, fast and easy-to-use file manager for Xfce
+      spicetify-cli # CLI to customize Spotify
+      xfce.thunar # Modern, fast and easy-to-use file manager for Xfce
       # xdg-desktop-portal # Desktop integration portal for sandboxed applications
       # xdg-desktop-portal-gnome # GNOME portal backend for desktop integration
       # xdg-desktop-portal-gtk # GTK portal backend for desktop integration
