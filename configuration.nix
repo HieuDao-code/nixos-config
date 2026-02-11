@@ -192,8 +192,13 @@
 
     ++ (with pkgs-unstable; [
       ghostty # GPU-accelerated terminal emulator
-      niri # A scrollable-tiling Wayland compositor
     ]);
+
+  # A scrollable-tiling Wayland compositor
+  programs.niri = {
+    enable = true;
+    package = pkgs-unstable.niri;
+  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
