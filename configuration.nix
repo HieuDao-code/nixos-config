@@ -33,6 +33,15 @@
   # Enable networking
   networking.networkmanager.enable = true;
 
+  # Enable bluetooth
+  hardware.bluetooth.enable = true;
+
+  # Power profile manager
+  services.power-profiles-daemon.enable = true;
+
+  # Power management
+  services.upower.enable = true;
+
   # Set your time zone.
   time.timeZone = "Europe/Berlin";
 
@@ -138,36 +147,47 @@
       fzf # Command-line fuzzy finder
       lazygit # Simple terminal UI for git commands
       inputs.neovim-nightly-overlay.packages.${pkgs.stdenv.hostPlatform.system}.default # Ambitious Vim-fork focused on extensibility and agility
+      rclone # Command-line cloud storage sync tool
       ripgrep # Fast search tool (like grep, but better)
       starship # Minimal, customizable shell prompt
       stow # Symlink farm manager for dotfiles
       tree-sitter # CLI for Tree-sitter parsing library
       uv # Fast Python virtual environment manager
-      wl-clipboard # Clipboard manager for Wayland
       zoxide # Smarter cd command for navigation
       zsh # Powerful shell with advanced features
 
-      # System tools
+      # Desktop Shell & Window manager
+      adw-gtk # An unofficial GTK3 port of libadwaita
+      cava # Console-based audio visualizer
+      cliphist # Clipboard manager for Wayland
+      # ly # Lightweight TUI display manager
+      # niri # A scrollable-tiling Wayland compositor
+      inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default # A beautiful, minimal desktop shell for wayland
+      nwg-look # GTK settings editor adapted to work on wlroots-based compositors
+      papirus-icon-theme # Papirus icon theme for Linux desktops
+      kdePackages.qt6ct # Qt 6 Configuration Utility
+      # spicetify-cli # CLI to customize Spotify
+      # xfce.thunar # Modern, fast and easy-to-use file manager for Xfce
+      # xdg-desktop-portal # Desktop integration portal for sandboxed applications
+      # xdg-desktop-portal-gnome # GNOME portal backend for desktop integration
+      # xdg-desktop-portal-gtk # GTK portal backend for desktop integration
+      # xwayland-satellite # Run X11 applications in Wayland sessions
+      wl-clipboard # Clipboard manager for Wayland
+      wlsunset # Adjusts the color temperature of your screen
+
+      # Applications
       bitwarden-desktop # Secure password manager
       libreoffice-still # Office suite (stable branch)
       portfolio # Investment portfolio tracking tool
       obsidian # Markdown-based knowledge base app
-      rclone # Command-line cloud storage sync tool
       spotify # Music streaming client
-
-      # Desktop Shell & Window manager
-      # adw-gtk3                  # An unofficial GTK3 port of libadwaita
-      # cava                      # Audio visualizer for the terminal
-      # papirus-icon-theme        # Papirus icon theme for Linux desktops
-      # qt6-multimedia-ffmpeg     # FFmpeg plugin for Qt6 multimedia
-      # thunar                    # Modern, fast and easy-to-use file manager for Xfce
-      # xdg-desktop-portal-gnome  # GNOME portal backend for desktop integration
+      # zen-browser-bin # Performance oriented Firefox-based web browser
 
       # Gaming
-      # discord                   # All-in-one voice and text chat for gamers
-      # gamescope                 # Micro-compositor for gaming (Steam Deck, etc.)
-      # steam                     # Digital distribution platform for games
-      # xpadneo-dkms              # DKMS driver for Xbox One wireless gamepads
+      # vesktop # Privacy friendly Discord client
+      # gamescope # Micro-compositor for gaming (Steam Deck, etc.)
+      # steam # Digital distribution platform for games
+      # xpadneo-dkms # DKMS driver for Xbox One wireless gamepads
     ])
 
     ++ (with pkgs-unstable; [
