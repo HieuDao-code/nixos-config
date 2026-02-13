@@ -64,8 +64,7 @@
   services.xserver.enable = true;
 
   # Enable the GNOME Desktop Environment.
-  # services.displayManager.autoLogin.enable = true;
-  services.displayManager.ly.enable = true;
+  services.displayManager.sddm.enable = true;
   # services.desktopManager.gnome.enable = true;
 
   # Configure keymap in X11
@@ -124,8 +123,9 @@
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages =
-    (with pkgs; [
+  environment.systemPackages = (
+    with pkgs;
+    [
       vim
       wget
       git
@@ -161,7 +161,7 @@
       adw-gtk3 # An unofficial GTK3 port of libadwaita
       cava # Console-based audio visualizer
       cliphist # Clipboard manager for Wayland
-      ly # Lightweight TUI display manager
+      # ly # Lightweight TUI display manager
       inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default # A beautiful, minimal desktop shell for wayland
       nwg-look # GTK settings editor adapted to work on wlroots-based compositors
       papirus-icon-theme # Papirus icon theme for Linux desktops
@@ -188,16 +188,17 @@
       # gamescope # Micro-compositor for gaming (Steam Deck, etc.)
       # steam # Digital distribution platform for games
       # xpadneo-dkms # DKMS driver for Xbox One wireless gamepads
-    ])
-
-    ++ (with pkgs-unstable; [
       ghostty # GPU-accelerated terminal emulator
-    ]);
+    ]
+  );
+
+  # ++ (with pkgs-unstable; [
+  # ]);
 
   # A scrollable-tiling Wayland compositor
   programs.niri = {
     enable = true;
-    package = pkgs-unstable.niri;
+    # package = pkgs-unstable.niri;
   };
 
   # Some programs need SUID wrappers, can be configured further or are
