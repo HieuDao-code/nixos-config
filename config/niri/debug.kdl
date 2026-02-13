@@ -1,0 +1,7 @@
+// Debugging and experimental options
+// https://yalter.github.io/niri/Configuration%3A-Debug-Options.html
+
+debug {
+    // NOTE: https://yalter.github.io/niri/Configuration%3A-Debug-Options.html#honor-xdg-activation-with-invalid-serial
+    honor-xdg-activation-with-invalid-serial
+}

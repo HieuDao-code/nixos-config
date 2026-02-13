@@ -1,0 +1,17 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+[directory]
+truncation_length = 5
+
+[gcloud]
+disabled = true
+
+[git_status]
+disabled = true
+
+[package]
+disabled = true
+
+[python]
+symbol = ' '
+version_format = 'v${major}.${minor}'

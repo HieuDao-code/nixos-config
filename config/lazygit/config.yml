@@ -1,0 +1,17 @@
+gui:
+  sidePanelWidth: 0.275
+git:
+  mainBranches:
+    - master
+    - main
+    - develop
+  pagers:
+    - colorArg: always
+      externalDiffCommand: difft
+customCommands:
+  - key: "C"
+    command: "cz c"
+    description: "Commit with commitizen"
+    context: "files"
+    loadingText: "Opening commitizen commit tool"
+    output: terminal

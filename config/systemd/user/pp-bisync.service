@@ -1,0 +1,6 @@
+[Unit]
+Description=Portfolio Performance Bi-directional Sync
+
+[Service]
+Type=oneshot
+ExecStart=%h/.local/bin/gdrive-bisync %h/Documents/pp gdrive:Bank/Bankdepot/

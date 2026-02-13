@@ -1,0 +1,8 @@
+// Layer rules let you adjust behavior for individual layer-shell surfaces
+// https://yalter.github.io/niri/Configuration%3A-Layer-Rules.html
+
+// Set the regular wallpaper on the backdrop.
+layer-rule {
+  match namespace="^noctalia-wallpaper*"
+  place-within-backdrop true
+}

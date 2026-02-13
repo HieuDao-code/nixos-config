@@ -1,0 +1,20 @@
+// Output configurations
+// https://yalter.github.io/niri/Configuration:-Outputs
+
+// Run `niri msg outputs` to see the names of your outputs
+
+// Main 1440p monitor
+output "DP-3" {
+    mode "2560x1440@143.973"
+    position x=0 y=0
+    variable-refresh-rate on-demand=true
+    focus-at-startup
+}
+
+// Secondary 1080p monitor
+output "DP-1" {
+    mode "1920x1080@143.998"
+    scale 0.75
+    position x=2560 y=0
+    variable-refresh-rate on-demand=true
+}

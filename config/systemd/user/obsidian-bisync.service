@@ -1,0 +1,6 @@
+[Unit]
+Description=Obsidian Bi-directional Sync
+
+[Service]
+Type=oneshot
+ExecStart=%h/.local/bin/gdrive-bisync %h/Documents/obsidian gdrive:obsidian

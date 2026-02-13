@@ -1,0 +1,56 @@
+// Settings that influence how windows are positioned and sized
+// https://yalter.github.io/niri/Configuration:-Layout
+
+layout {
+    // Set gaps around windows in logical pixels.
+    gaps 8
+
+    // Default background color
+    background-color "transparent"
+
+    // Mod+R toggles between
+    preset-column-widths {
+        // Proportion sets the width as a fraction of the output width, taking gaps into account.
+        proportion 0.5
+        proportion 0.66667
+        proportion 1.0
+    }
+
+    // You can change the default width of the new windows
+    default-column-width { proportion 0.5; }
+
+    // NOTE: Color by Noctalia Shell
+    // Focus ring looks
+    focus-ring {
+        // Disable the focus ring
+        // off
+
+        // How many logical pixels the ring extends out from the windows
+        width 2
+    }
+
+    // NOTE: Color by Noctalia Shell
+    // Border looks
+    border {
+        // Disable the border
+        // off
+
+        width 2
+    }
+
+    // NOTE: Color by Noctalia Shell
+    // Drop shadows for windows
+    shadow {
+        // Enable shadows
+        on
+
+        // Softness controls the shadow blur radius
+        softness 30
+
+        // Spread expands the shadow
+        spread 5
+
+        // Offset moves the shadow relative to the window
+        offset x=0 y=5
+    }
+}

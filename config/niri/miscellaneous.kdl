@@ -1,0 +1,46 @@
+// Miscellaneous niri configuration options
+// https://yalter.github.io/niri/Configuration%3A-Miscellaneous.html
+
+// Desktop shell Noctalia
+spawn-at-startup "qs" "-c" "noctalia-shell"
+
+// Clipboard manager integration
+spawn-at-startup "wl-paste" "--watch" "cliphist" "store"
+
+// Clients to omit their client-side decorations if possible
+prefer-no-csd
+
+// Path where screenshots are saved
+screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
+
+// Override environment variables for processes spawned by niri
+// Note that these variables do not propagate to the systemd global environment, so
+// tools and applications started by systemd do not see them. In particular, if you
+// start a desktop shell like DankMaterialShell through systemd, then use its built-in
+// application launcher, the apps won't see these environment variables.
+environment {
+    XDG_CURRENT_DESKTOP "niri"
+    QT_QPA_PLATFORMTHEME "qt6ct"
+}
+
+cursor {
+    hide-when-typing
+}
+
+// Settings for Overview
+overview {
+    workspace-shadow {
+        off
+    }
+}
+
+// Settings for "Important Hotkeys" overlay
+hotkey-overlay {
+    // Disable the "Important Hotkeys" pop-up at startup
+    skip-at-startup
+}
+
+// Settings for config created/failed notification
+config-notification {
+    disable-failed
+}

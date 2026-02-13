@@ -1,0 +1,22 @@
+// Check the wiki for a full description of the configuration:
+// https://yalter.github.io/niri/Configuration:-Introduction
+// See here for the default configuration file:
+// https://github.com/YaLTeR/niri/blob/main/resources/default-config.kdl
+
+// Configuration split into files by sections
+include "input.kdl"
+include "outputs.kdl"
+include "binds.kdl"
+include "layout.kdl"
+include "miscellaneous.kdl"
+include "window-rules.kdl"
+include "layer-rules.kdl"
+include "gestures.kdl"
+include "recent-windows.kdl"
+include "debug.kdl"
+
+// Noctalia shell colors
+include "./noctalia.kdl"
+
+// TODO : add optional in next niri release
+// include optional=true "./noctalia.kdl"

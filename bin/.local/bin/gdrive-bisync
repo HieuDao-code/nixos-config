@@ -1,0 +1,90 @@
+#!/usr/bin/env bash
+# Synchronize with Google Drive using rclone bisync
+
+# Require two arguments for source and destination
+if [[ $# -lt 2 ]]; then
+  echo "Usage: $0 <source_dir> <dest_dir> [additional_rclone_options]"
+  echo "Example: $0 ~/Documents/obsidian gdrive:obsidian"
+  exit 1
+fi
+
+SOURCE_DIR="$1"
+DEST_DIR="$2"
+
+# Extract a clean name from source directory for log folder
+SOURCE_NAME=$(basename "${SOURCE_DIR%%/}")
+LOG_DIR="${XDG_DATA_HOME:-$HOME/.local/share}/${SOURCE_NAME}-bisync/logs"
+mkdir -p "$LOG_DIR"
+LOG_FILE="$LOG_DIR/$(date +'%Y-%m-%d_%H-%M-%S').log"
+
+# Function to send notification
+send_notification() {
+  local title="$1"
+  local message="$2"
+  local urgency="${3:-normal}"
+
+  if command -v notify-send >/dev/null 2>&1; then
+    notify-send -u "$urgency" "$title" "$message"
+  fi
+}
+
+# Log rotation - keep only last 30 log files
+find "$LOG_DIR" -name "*.log" -type f -mtime +30 -delete 2>/dev/null
+
+# Check if rclone is available
+if ! command -v rclone >/dev/null 2>&1; then
+  ERROR_MSG="rclone not found in PATH"
+  echo "$(date): ERROR: $ERROR_MSG" | tee -a "$LOG_FILE"
+  send_notification "Bisync Error - $SOURCE_NAME" "$ERROR_MSG" "critical"
+  exit 1
+fi
+
+# Check if gdrive remote is configured
+if ! rclone config show gdrive >/dev/null 2>&1; then
+  ERROR_MSG="'gdrive' remote not configured in rclone"
+  echo "$(date): ERROR: $ERROR_MSG" | tee -a "$LOG_FILE"
+  send_notification "Bisync Error - $SOURCE_NAME" "$ERROR_MSG" "critical"
+  exit 1
+fi
+
+# Check if local source directory exists (only if it's a local path)
+if [[ "$SOURCE_DIR" != *:* ]] && [[ ! -d "$SOURCE_DIR" ]]; then
+  ERROR_MSG="$SOURCE_DIR directory not found"
+  echo "$(date): ERROR: $ERROR_MSG" | tee -a "$LOG_FILE"
+  send_notification "Bisync Error - $SOURCE_NAME" "$ERROR_MSG" "critical"
+  exit 1
+fi
+
+echo "$(date): Starting sync: $SOURCE_DIR <-> $DEST_DIR" | tee -a "$LOG_FILE"
+
+rclone bisync "$SOURCE_DIR/" "$DEST_DIR/" \
+  --create-empty-src-dirs \
+  --resilient \
+  --fix-case \
+  --check-access \
+  "${@:3}" \
+  >>"$LOG_FILE" 2>&1
+
+EXIT_CODE=$?
+
+if [[ $EXIT_CODE -eq 0 ]]; then
+  echo "$(date): Bisync completed successfully." | tee -a "$LOG_FILE"
+elif [[ $EXIT_CODE -eq 1 ]]; then
+  ERROR_MSG="Bisync failed non-critically. Try rerunning the command."
+  echo "$(date): ERROR: $ERROR_MSG" | tee -a "$LOG_FILE"
+  send_notification "Bisync Warning - $SOURCE_NAME" "$ERROR_MSG" "normal"
+elif [[ $EXIT_CODE -eq 2 ]]; then
+  ERROR_MSG="Bisync failed due to syntax or usage error. Check your command and arguments."
+  echo "$(date): ERROR: $ERROR_MSG" | tee -a "$LOG_FILE"
+  send_notification "Bisync Error - $SOURCE_NAME" "$ERROR_MSG" "critical"
+elif [[ $EXIT_CODE -eq 7 ]]; then
+  ERROR_MSG="Bisync critically aborted. You must run with --resync to recover."
+  echo "$(date): CRITICAL ERROR: $ERROR_MSG" | tee -a "$LOG_FILE"
+  send_notification "Bisync Critical Error - $SOURCE_NAME" "$ERROR_MSG" "critical"
+else
+  ERROR_MSG="Bisync failed with unknown error code: $EXIT_CODE"
+  echo "$(date): ERROR: $ERROR_MSG" | tee -a "$LOG_FILE"
+  send_notification "Bisync Error - $SOURCE_NAME" "$ERROR_MSG" "critical"
+fi
+
+exit $EXIT_CODE

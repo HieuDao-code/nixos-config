@@ -1,0 +1,20 @@
+# MacOS specific configuration
+# Font settings
+font-thicken = true
+font-thicken-strength = 70
+
+# Titlebar style
+macos-titlebar-style = tabs
+macos-window-buttons = hidden
+
+# Treat the option key as alt
+macos-option-as-alt = true
+
+# Save and restore window state (size and position)
+window-save-state = always
+
+# Stop Ghostty when I close everything
+quit-after-last-window-closed = true
+
+# No shadow looks cleaner
+macos-window-shadow = false

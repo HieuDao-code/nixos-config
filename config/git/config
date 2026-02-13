@@ -1,0 +1,28 @@
+[user]
+	name = Hieu Dao
+	email = HieuDao-code@users.noreply.github.com
+[init]
+	defaultBranch = main
+[fetch]
+	prune = true
+[pull]
+	rebase = true
+[push]
+	autoSetupRemote = true
+[rebase]
+	updateRefs = true
+[rerere]
+	enabled = true
+	autoupdate = true
+[alias]
+	dlog = -c diff.external=difft log  --ext-diff
+	dshow = -c diff.external=difft show --ext-diff
+	ddiff = -c diff.external=difft diff
+[difftool "difftastic"]
+	cmd = difft '$MERGED' '$LOCAL' 'abcdef1' '100644' '$REMOTE' 'abcdef2' '100644'
+[difftool]
+	prompt = false
+[pager]
+	difftool = true
+[diff]
+	tool = difftastic

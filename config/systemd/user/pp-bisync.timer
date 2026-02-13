@@ -1,0 +1,10 @@
+[Unit]
+Description=Run Portfolio Performance sync every 10 minutes
+
+[Timer]
+OnBootSec=60s
+OnUnitActiveSec=10min
+AccuracySec=1min
+
+[Install]
+WantedBy=timers.target

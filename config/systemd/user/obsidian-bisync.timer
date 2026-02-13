@@ -1,0 +1,10 @@
+[Unit]
+Description=Run Obsidian sync every 10 minutes
+
+[Timer]
+OnBootSec=30s
+OnUnitActiveSec=10min
+AccuracySec=1min
+
+[Install]
+WantedBy=timers.target

@@ -1,0 +1,12 @@
+// Recent windows switcher
+// https://yalter.github.io/niri/Configuration%3A-Recent-Windows.html
+
+recent-windows {
+    // Override to disable Super+Tab
+    binds {
+        Alt+Tab         { next-window scope="output"; }
+        Alt+Shift+Tab   { previous-window scope="output"; }
+        Alt+grave       { next-window filter="app-id"; }
+        Alt+Shift+grave { previous-window filter="app-id"; }
+    }
+}

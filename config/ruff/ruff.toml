@@ -1,0 +1,23 @@
+target-version = "py313"
+
+[lint]
+select = [
+  "A",     # flake8-builtins
+  "ASYNC", # flake8-async
+  "E",     # pycodestyle error
+  "F",     # pyflakes
+  "FAST",  # fastapi
+  "I",     # isort
+  "N",     # pep8-naming
+  "PT",    # flake8-pytest-style
+  "RUF",   # ruff
+  "UP",    # pyupgrade
+  "W",     # pycodestyle warnings
+]
+
+[isort]
+force-wrap-aliases = true
+combine-as-imports = true
+
+[format]
+docstring-code-format = true

@@ -1,0 +1,44 @@
+# Disable ligatures
+font-feature = -calt, -liga
+
+# Color scheme
+theme = light:Rose Pine Dawn,dark:Rose Pine Moon
+
+# Cursor
+custom-shader = shaders/cursor_tail.glsl
+
+# Mouse settings
+mouse-hide-while-typing = true
+
+# Confirm before closing the terminal
+confirm-close-surface = false
+
+# Keybindings
+# Tabs
+keybind = ctrl+a>c=new_tab
+keybind = ctrl+a>x=close_surface
+# Navigate between tabs
+keybind = shift+right=next_tab
+keybind = shift+left=previous_tab
+
+# Splits
+keybind = ctrl+a>v=new_split:right
+keybind = ctrl+a>s=new_split:down
+keybind = ctrl+a>z=toggle_split_zoom
+# Navigate splits
+keybind = performable:ctrl+k=goto_split:top
+keybind = performable:ctrl+j=goto_split:bottom
+keybind = performable:ctrl+h=goto_split:left
+keybind = performable:ctrl+l=goto_split:right
+
+# Rename title
+keybind = ctrl+a>,=prompt_surface_title
+
+# Quick terminal
+quick-terminal-position = left
+quick-terminal-size = 40%
+keybind = global:ctrl+t=toggle_quick_terminal
+
+# Include OS-specific configurations.
+config-file = ?config-macos
+config-file = ?config-linux
