@@ -170,9 +170,7 @@
       brightnessctl # Command-line tool to control brightness
       cava # Console-based audio visualizer
       cliphist # Clipboard manager for Wayland
-      # ly # Lightweight TUI display manager
       gnome-keyring # GNOME keyring for managing secrets and keys
-      # inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default # A beautiful, minimal desktop shell for wayland
       imagemagick # Software suite to create, edit, compose, or convert bitmap images
       nwg-look # GTK settings editor adapted to work on wlroots-based compositors
       papirus-icon-theme # Papirus icon theme for Linux desktops

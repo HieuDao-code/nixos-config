@@ -2,15 +2,15 @@
   description = "A simple NixOS flake";
 
   inputs = {
-    # NixOS official package source, using the stable nixos-25.11 branch here
+    # NixOS official stable package source
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
+
     # We use the unstable nixpkgs repo for some packages
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
-    # nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+
     # Home-manager, used for managing user configuration
     home-manager = {
       url = "github:nix-community/home-manager/release-25.11";
-      # url = "github:nix-community/home-manager";
       # The `follows` keyword in inputs is used for inheritance.
       # Here, `inputs.nixpkgs` of home-manager is kept consistent with
       # the `inputs.nixpkgs` of the current flake,
@@ -20,13 +20,6 @@
 
     # Neovim nightly
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
-
-    # Noctalia shell
-    # noctalia = {
-    #   url = "github:noctalia-dev/noctalia-shell";
-    #   inputs.nixpkgs.follows = "nixpkgs-unstable";
-    #   # inputs.nixpkgs.follows = "nixpkgs";
-    # };
   };
 
   outputs =
