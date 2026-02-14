@@ -6,7 +6,7 @@
   inputs,
   config,
   pkgs,
-  # pkgs-unstable,
+  pkgs-unstable,
   ...
 }:
 
@@ -64,8 +64,11 @@
   services.xserver.enable = false;
 
   # Enable the GNOME Desktop Environment.
-  services.displayManager.sddm.enable = true;
-  services.displayManager.sddm.wayland.enable = true;
+  # services.displayManager.sddm.enable = true;
+  # services.displayManager.sddm.wayland.enable = true;
+  services.displayManager.cosmic-greeter.enable = true;
+
+  services.displayManager.defaultSession = "niri";
   # services.desktopManager.gnome.enable = true;
 
   # Configure keymap in X11
@@ -126,9 +129,8 @@
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = (
-    with pkgs;
-    [
+  environment.systemPackages =
+    (with pkgs; [
       vim
       wget
       git
@@ -168,7 +170,7 @@
       cliphist # Clipboard manager for Wayland
       # ly # Lightweight TUI display manager
       gnome-keyring # GNOME keyring for managing secrets and keys
-      inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default # A beautiful, minimal desktop shell for wayland
+      # inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default # A beautiful, minimal desktop shell for wayland
       nwg-look # GTK settings editor adapted to work on wlroots-based compositors
       papirus-icon-theme # Papirus icon theme for Linux desktops
       kdePackages.qt6ct # Qt 6 Configuration Utility
@@ -194,11 +196,11 @@
       # gamescope # Micro-compositor for gaming (Steam Deck, etc.)
       # steam # Digital distribution platform for games
       # xpadneo-dkms # DKMS driver for Xbox One wireless gamepads
-    ]
-  );
+    ])
 
-  # ++ (with pkgs-unstable; [
-  # ]);
+    ++ (with pkgs-unstable; [
+      noctalia-shell
+    ]);
 
   # A scrollable-tiling Wayland compositor
   programs.niri = {
@@ -270,5 +272,4 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "25.11"; # Did you read the comment?
-
 }

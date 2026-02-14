@@ -2,7 +2,7 @@
 // https://yalter.github.io/niri/Configuration%3A-Miscellaneous.html
 
 // Desktop shell Noctalia
-spawn-at-startup "qs" "-c" "noctalia-shell"
+spawn-at-startup "noctalia-shell"
 
 // Clipboard manager integration
 spawn-at-startup "wl-paste" "--watch" "cliphist" "store"

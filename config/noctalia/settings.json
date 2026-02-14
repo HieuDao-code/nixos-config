@@ -183,7 +183,7 @@
         ]
     },
     "colorSchemes": {
-        "darkMode": false,
+        "darkMode": true,
         "generationMethod": "tonal-spot",
         "manualSunrise": "06:30",
         "manualSunset": "18:30",
@@ -547,10 +547,6 @@
             {
                 "enabled": true,
                 "id": "zenBrowser"
-            },
-            {
-                "enabled": true,
-                "id": "ghostty"
             }
         ],
         "enableUserTheming": false
