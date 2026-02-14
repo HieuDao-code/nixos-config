@@ -2,7 +2,7 @@
 
 # Symlink config files to home directory
 let
-  dotfiles = "${config.home.homeDirectory}/.dotfiles/config";
+  dotfiles = "${config.home.homeDirectory}/nixos-config/config";
   configs = [
     "bat"
     "btop"
@@ -32,5 +32,5 @@ in
   xdg.configFile = builtins.listToAttrs (map mkLink configs);
 
   home.file.".zshenv".source =
-    config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/zsh/.zshenv";
+    config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixos-config/zsh/.zshenv";
 }

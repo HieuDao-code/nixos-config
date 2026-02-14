@@ -6,7 +6,7 @@
   inputs,
   config,
   pkgs,
-  pkgs-unstable,
+  # pkgs-unstable,
   ...
 }:
 
@@ -61,10 +61,11 @@
   };
 
   # Enable the X11 windowing system.
-  services.xserver.enable = true;
+  services.xserver.enable = false;
 
   # Enable the GNOME Desktop Environment.
   services.displayManager.sddm.enable = true;
+  services.displayManager.sddm.wayland.enable = true;
   # services.desktopManager.gnome.enable = true;
 
   # Configure keymap in X11
@@ -103,6 +104,8 @@
     extraGroups = [
       "networkmanager"
       "wheel"
+      "video"
+      "input"
     ];
     packages = with pkgs; [
       #  thunderbird
