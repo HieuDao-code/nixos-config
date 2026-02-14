@@ -1,0 +1,26 @@
+# fish
+config.work.fish
+fish_variables
+
+# noctalia
+bookmarks
+colors.json
+gtk.css
+noctalia
+!noctalia/
+noctalia.conf
+noctalia.css
+noctalia.kdl
+noctalia.theme
+pam/
+
+# zsh 
+.zcompdump
+.zsh_sessions/
+.zshrc_backup
+.zcompcache/
+.zshrc.work
+.zsh_history
+
+# systemd
+timers.target.wants/
