@@ -11,7 +11,7 @@
       "version": ">=0.0.0"
     },
     "codediff.nvim": {
-      "rev": "d555a93e8bc1d551c69baa8db154d405c1aa23e2",
+      "rev": "7e5cda21dab96901cbc4bf3b15828aa8c7b490a7",
       "src": "https://github.com/esmuellert/codediff.nvim",
       "version": ">=0.0.0"
     },
@@ -21,7 +21,7 @@
       "version": ">=0.0.0"
     },
     "fff.nvim": {
-      "rev": "0523fe39ffc59373de0648ba636705d35a6fdfc2",
+      "rev": "c9137b19b6b86de2bc3c978fb64fe6e78ddeb0b4",
       "src": "https://github.com/dmtrKovalenko/fff.nvim"
     },
     "fixcursorhold.nvim": {
@@ -49,7 +49,7 @@
       "version": ">=0.0.0"
     },
     "mini.nvim": {
-      "rev": "e5a9a3830f9c37211df4c82cac45bf728b95739d",
+      "rev": "4ca988557786c9a4e41d5e5b6e31b4c9d7379f53",
       "src": "https://github.com/nvim-mini/mini.nvim"
     },
     "neotest": {
@@ -71,7 +71,7 @@
       "version": ">=0.0.0"
     },
     "nvim-dap": {
-      "rev": "e47878dcf1ccc30136b30d19ab19fe76946d61cd",
+      "rev": "db321947bb289a2d4d76a32e76e4d2bd6103d7df",
       "src": "https://github.com/mfussenegger/nvim-dap"
     },
     "nvim-dap-python": {
@@ -79,7 +79,7 @@
       "src": "https://github.com/mfussenegger/nvim-dap-python"
     },
     "nvim-dap-view": {
-      "rev": "c4384f417dae719d21a4af0ab62c9a3ae3c518c8",
+      "rev": "8d08da19c2108b1f2f45d13c7b9728fcbc5d831d",
       "src": "https://github.com/igorlfs/nvim-dap-view"
     },
     "nvim-dap-virtual-text": {
@@ -91,7 +91,7 @@
       "src": "https://github.com/nvim-neotest/nvim-nio"
     },
     "nvim-treesitter": {
-      "rev": "45a07f869b0cffba342276f2c77ba7c116d35db8",
+      "rev": "4d9466677a5ceadef104eaa0fe08d60d91c4e9a7",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter"
     },
     "nvim-treesitter-context": {
@@ -104,7 +104,7 @@
       "version": "'main'"
     },
     "obsidian.nvim": {
-      "rev": "8ab5bb9b58edafce994f8c8e709d82c37e3257e0",
+      "rev": "2bec7da95722e17fba22bf0c6255428fb8dfd3dc",
       "src": "https://github.com/obsidian-nvim/obsidian.nvim",
       "version": ">=0.0.0"
     },
@@ -132,7 +132,7 @@
       "version": ">=0.0.0"
     },
     "venv-selector.nvim": {
-      "rev": "26a6da0348dc2d0a3787e095bd4e68d976304bb2",
+      "rev": "5b738baf1ea8aac6ab1cf10f42aaeb495fce0c73",
       "src": "https://github.com/linux-cultist/venv-selector.nvim"
     }
   }

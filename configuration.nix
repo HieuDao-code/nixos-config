@@ -134,6 +134,7 @@
       git
       clang # C Compiler
       unzip
+      nodejs
 
       # Nix
       nixfmt # Nix code formatter
@@ -149,6 +150,7 @@
       fish # User-friendly interactive shell
       fnm # Fast Node.js version manager (binary)
       fzf # Command-line fuzzy finder
+      ghostty # GPU-accelerated terminal emulator
       lazygit # Simple terminal UI for git commands
       inputs.neovim-nightly-overlay.packages.${pkgs.stdenv.hostPlatform.system}.default # Ambitious Vim-fork focused on extensibility and agility
       rclone # Command-line cloud storage sync tool
@@ -165,6 +167,7 @@
       cava # Console-based audio visualizer
       cliphist # Clipboard manager for Wayland
       # ly # Lightweight TUI display manager
+      gnome-keyring # GNOME keyring for managing secrets and keys
       inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default # A beautiful, minimal desktop shell for wayland
       nwg-look # GTK settings editor adapted to work on wlroots-based compositors
       papirus-icon-theme # Papirus icon theme for Linux desktops
@@ -191,7 +194,6 @@
       # gamescope # Micro-compositor for gaming (Steam Deck, etc.)
       # steam # Digital distribution platform for games
       # xpadneo-dkms # DKMS driver for Xbox One wireless gamepads
-      ghostty # GPU-accelerated terminal emulator
     ]
   );
 

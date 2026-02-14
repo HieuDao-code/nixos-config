@@ -7,6 +7,7 @@
 
   home.username = "hieu";
   home.homeDirectory = "/home/hieu";
+  home.stateVersion = "25.11";
 
   # This value determines the home Manager release that your
   # configuration is compatible with. This helps avoid breakage
@@ -16,7 +17,6 @@
   # You can update home Manager without changing this value. See
   # the home Manager release notes for a list of state version
   # changes in each release.
-  home.stateVersion = "25.11";
 
   # Management of XDG base directories
   xdg.enable = true;
