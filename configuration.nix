@@ -132,12 +132,13 @@
   # $ nix search wget
   environment.systemPackages =
     (with pkgs; [
-      vim
-      wget
-      git
+      vim # Terminal-based text editor
+      wget # Command-line file downloader
+      git # Version control system
       clang # C Compiler
-      unzip
-      nodejs
+      unzip # Unzip utility
+      nodejs # JavaScript runtime
+      icu # Unicode and globalization support library
 
       # Nix
       nixfmt # Nix code formatter
