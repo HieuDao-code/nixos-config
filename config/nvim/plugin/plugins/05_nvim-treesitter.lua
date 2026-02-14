@@ -21,6 +21,7 @@ _G.Config.now_if_args(function()
         "html",
         "ini",
         "json",
+        "just",
         "lua",
         "luadoc",
         "markdown",

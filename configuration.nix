@@ -158,6 +158,7 @@
       fnm # Fast Node.js version manager (binary)
       fzf # Command-line fuzzy finder
       ghostty # GPU-accelerated terminal emulator
+      just # Handy way to save and run project-specific commands
       lazygit # Simple terminal UI for git commands
       inputs.neovim-nightly-overlay.packages.${pkgs.stdenv.hostPlatform.system}.default # Ambitious Vim-fork focused on extensibility and agility
       rclone # Command-line cloud storage sync tool
