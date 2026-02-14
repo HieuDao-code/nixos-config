@@ -37,6 +37,9 @@
   hardware.bluetooth.enable = true;
   hardware.bluetooth.powerOnBoot = true;
 
+  # DKMS driver for Xbox One wireless controllers
+  hardware.xpadneo.enable = true;
+
   # Power profile manager
   services.power-profiles-daemon.enable = true;
 
@@ -194,10 +197,9 @@
       # zen-browser-bin # Performance oriented Firefox-based web browser
 
       # Gaming
-      # vesktop # Privacy friendly Discord client
-      # gamescope # Micro-compositor for gaming (Steam Deck, etc.)
-      # steam # Digital distribution platform for games
-      # xpadneo-dkms # DKMS driver for Xbox One wireless gamepads
+      vesktop # Privacy friendly Discord client
+      gamescope # Micro-compositor for gaming (Steam Deck, etc.)
+      steam # Digital distribution platform for games
     ])
 
     ++ (with pkgs-unstable; [
